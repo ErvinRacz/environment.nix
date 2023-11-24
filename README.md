@@ -83,7 +83,7 @@ in
 
 ```bash
 darwin-rebuild switch --flake ".#darwin-aarch64" # for M1/M2 Chipsets
-darwin-rebuild switch --flake ".#darwin-x86_64" # for Intel Chipsets
+darwin-rebuild switch --flake ".#darwin-x86_64" # for Intel or AMD Chipsets
 ```
 
 ### NixOS
@@ -130,7 +130,7 @@ in
 
 ```bash
 nixos-rebuild switch --flake ".#nixos-aarch64" # for ARM Chipsets
-nixos-rebuild switch --flake ".#nixos-x86_64" # for Intel Chipsets
+nixos-rebuild switch --flake ".#nixos-x86_64" # for Intel or AMD Chipsets
 ```
 
 
