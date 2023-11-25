@@ -11,17 +11,13 @@
 	url = "github:nix-community/home-manager/master";
    	inputs.nixpkgs.follows = "nixpkgs";
     };
-    # TODO: to manage disk format and partitioning:
-    disko = {
-    	url = "github:nix-community/disko";
-	inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ self, darwin, home-manager, nixpkgs, ... }:
     let
       ### START OPTIONS ###
-      username = "ervin"; # should match your host username
+      username = "ervin";
+      fullName = "Ervin Racz";
       ### END OPTIONS ###
 
       ### START SYSTEMS ###

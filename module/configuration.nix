@@ -1,4 +1,21 @@
-{
+ { config, ...}: {
+
+  imports = [];
+
+  options = {
+    username = lib.mkOption {
+      type = lib.types.str;
+      description = "Primary user of the system";
+    };
+    fullName = lib.mkOption {
+      type = lib.types.str;
+      description = "Presentable name of the user";
+    };
+  };
+ };
+ 
+ config = let stateVersion = "23.05"
+ in {
   # add more system settings here
   nix = {
     settings = {
@@ -15,5 +32,9 @@
       warn-dirty = false;
     };
   };
-  programs.zsh.enable = true;
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users."${config.username}" = home-manager-config;
+  home-manager.users."${config.username}".home.stateVersion = stateVersion;
+  home-manager.users.root.home.stateVersion = stateVersion;
 }

@@ -31,11 +31,6 @@ inputs.nixpkgs.lib.nixosSystem {
     }
     hardware-configuration
     configuration
-    inputs.home-manager.nixosModules.home-manager {
-	home-manager.useGlobalPkgs = true;
-	home-manager.useUserPackages = true;
-	home-manager.users."${username}" = home-manager-config;
-    }
     # add more nix modules here
   ];
 }
