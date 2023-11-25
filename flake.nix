@@ -16,13 +16,15 @@
   outputs = inputs@{ self, darwin, home-manager, nixpkgs, ... }:
     let
       ### START OPTIONS ###
-      username = "ervin";
-      fullName = "Ervin Racz";
+      userConfig = {
+        username = "ervin";
+        fullName = "Ervin Racz";
+      };
       ### END OPTIONS ###
 
       ### START SYSTEMS ###
-      darwin-system = import ./system/darwin.nix { inherit inputs username; };
-      nixos-system = import ./system/nixos.nix { inherit inputs username; };
+      darwin-system = import ./system/darwin.nix { inherit inputs userConfig; };
+      nixos-system = import ./system/nixos.nix { inherit inputs userConfig; };
       ### END SYSTEMS ###
     in
     {

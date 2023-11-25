@@ -1,4 +1,4 @@
-{ inputs, username }:
+{ inputs, userConfig }:
 
 system:
 
@@ -21,9 +21,9 @@ inputs.nixpkgs.lib.nixosSystem {
       services.openssh.settings.PasswordAuthentication = false;
       services.openssh.settings.PermitRootLogin = "no";
       users.mutableUsers = false;
-      users.users."${username}" = {
+      users.users."${userConfig.username}" = {
         extraGroups = [ "wheel" ];
-        home = "/home/${username}";
+        home = "/home/${userConfig.username}";
         isNormalUser = true;
         password = "password";
       };
@@ -31,6 +31,11 @@ inputs.nixpkgs.lib.nixosSystem {
     }
     hardware-configuration
     configuration
+    inputs.home-manager.nixosModules.home-manager {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users."${userConfig.username}" = home-manager-config;
+    }
     # add more nix modules here
   ];
 }

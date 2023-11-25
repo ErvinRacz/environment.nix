@@ -1,4 +1,4 @@
- { config, ...}: {
+ { config, lib, ...}: {
 
   imports = [];
 
@@ -12,9 +12,11 @@
       description = "Presentable name of the user";
     };
   };
- };
  
- config = let stateVersion = "23.05"
+ config =
+ let
+ stateVersion = "23.05";
+ home-manager-config = import ./home-manager.nix;
  in {
   # add more system settings here
   nix = {
@@ -32,9 +34,5 @@
       warn-dirty = false;
     };
   };
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.users."${config.username}" = home-manager-config;
-  home-manager.users."${config.username}".home.stateVersion = stateVersion;
-  home-manager.users.root.home.stateVersion = stateVersion;
+  };
 }
