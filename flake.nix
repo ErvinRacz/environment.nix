@@ -6,15 +6,16 @@
     darwin = {
     	url = "github:lnl7/nix-darwin/master";
    	inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
 	url = "github:nix-community/home-manager/master";
    	inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
     # TODO: to manage disk format and partitioning:
     disko = {
     	url = "github:nix-community/disko";
 	inputs.nixpkgs.follows = "nixpkgs";
-    }
+    };
   };
 
   outputs = inputs@{ self, darwin, home-manager, nixpkgs, ... }:
