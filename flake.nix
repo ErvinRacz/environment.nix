@@ -2,11 +2,19 @@
   description = "Example kickstart Nix development setup.";
 
   inputs = {
-    darwin.inputs.nixpkgs.follows = "nixpkgs";
-    darwin.url = "github:lnl7/nix-darwin";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    darwin = {
+    	url = "github:lnl7/nix-darwin/master";
+   	inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+	url = "github:nix-community/home-manager/master";
+   	inputs.nixpkgs.follows = "nixpkgs";
+    }
+    # TODO: to manage disk format and partitioning:
+    disko = {
+    	url = "github:nix-community/disko";
+	inputs.nixpkgs.follows = "nixpkgs";
+    }
   };
 
   outputs = inputs@{ self, darwin, home-manager, nixpkgs, ... }:
