@@ -8,7 +8,7 @@ let
   home-manager-config = import ../module/home-manager.nix;
 in
 inputs.nixpkgs.lib.nixosSystem {
-  specialArgs = { inherit inputs; }
+  specialArgs = { inherit inputs; };
   inherit system;
   modules = [
     {
