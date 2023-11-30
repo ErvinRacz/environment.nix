@@ -28,6 +28,8 @@ inputs.nixpkgs.lib.nixosSystem {
         password = "password";
       };
       system.stateVersion = "23.05";
+
+      hyprland.enable = true;
     }
     hardware-configuration
     configuration
