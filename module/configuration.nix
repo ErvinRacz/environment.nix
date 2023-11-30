@@ -1,6 +1,6 @@
  { config, lib, ...}: {
 
-  imports = [];
+  imports = [./desktop/hyprland];
 
   options = {
     username = lib.mkOption {
@@ -12,7 +12,7 @@
       description = "Presentable name of the user";
     };
   };
- 
+
  config =
  let
  stateVersion = "23.05";
