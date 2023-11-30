@@ -8,8 +8,8 @@ let
   home-manager-config = import ../module/home-manager.nix;
 in
 inputs.nixpkgs.lib.nixosSystem {
+  specialArgs = { inherit inputs; }
   inherit system;
-  # modules: allows for reusable code
   modules = [
     {
       boot.loader.grub.enable = true;
