@@ -16,7 +16,6 @@
  config =
  let
  stateVersion = "23.05";
- home-manager-config = import ./home-manager.nix;
  in {
   # add more system settings here
   nix = {
