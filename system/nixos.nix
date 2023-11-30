@@ -28,8 +28,6 @@ inputs.nixpkgs.lib.nixosSystem {
         password = "password";
       };
       system.stateVersion = "23.05";
-
-      hyprland.enable = true;
     }
     hardware-configuration
     configuration
@@ -37,6 +35,10 @@ inputs.nixpkgs.lib.nixosSystem {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;
       home-manager.users."${userConfig.username}" = home-manager-config;
+    }
+    {
+        # programs and services
+        hyprland.enable = true;
     }
     # add more nix modules here
   ];
