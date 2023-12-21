@@ -1,11 +1,12 @@
 { inputs, config, pkgs, lib, ... }:
+let
+  inTestingVm = lib.virtualisation.isInVM && config.testmode.enable;
+in
 {
   options.hyprland.enable = lib.mkEnableOption "Hyprland.";
   options.testmode.enable = lib.mkEnableOption "Testmode.";
 
-  config = lib.mkIf config.hyprland.enable let
-    inTestingVm = lib.virtualisation.isInVM && config.testmode.enable;
-  in {
+  config = lib.mkIf config.hyprland.enable {
       programs.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
