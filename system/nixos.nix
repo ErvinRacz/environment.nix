@@ -13,7 +13,7 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     {
       boot.loader.grub.enable = true;
-      boot.loader.grub.device = "/dev/vda";
+      boot.loader.grub.device = "/dev/sda";
       boot.loader.grub.useOSProber = true;
       security.sudo.enable = true;
       security.sudo.wheelNeedsPassword = false;
