@@ -42,6 +42,7 @@ inputs.nixpkgs.lib.nixosSystem {
     {
         # programs and services
         hyprland.enable = true;
+        testmode.enable = true;
     }
     # add more nix modules here
   ];
