@@ -24,13 +24,13 @@ inputs.nixpkgs.lib.nixosSystem {
           mutableUsers = false;
           allowNoPasswordLogin = true;
           users."${userConfig.username}" = {
-              extraGroups = [ "wheel", "networkmanager" ];
+              extraGroups = [ "wheel" "networkmanager" ];
               home = "/home/${userConfig.username}";
               isNormalUser = true;
               password = "password";
           };
       };
-      system.stateVersion = "23.05";
+      system.stateVersion = "23.11";
     }
     hardware-configuration
     configuration
