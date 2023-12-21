@@ -20,12 +20,15 @@ inputs.nixpkgs.lib.nixosSystem {
       services.openssh.enable = true;
       services.openssh.settings.PasswordAuthentication = false;
       services.openssh.settings.PermitRootLogin = "no";
-      users.mutableUsers = false;
-      users.users."${userConfig.username}" = {
-        extraGroups = [ "wheel" ];
-        home = "/home/${userConfig.username}";
-        isNormalUser = true;
-        password = "password";
+      users = {
+          mutableUsers = false;
+          allowNoPasswordLogin = true;
+          users."${userConfig.username}" = {
+              extraGroups = [ "wheel", "networkmanager" ];
+              home = "/home/${userConfig.username}";
+              isNormalUser = true;
+              password = "password";
+          };
       };
       system.stateVersion = "23.05";
     }
