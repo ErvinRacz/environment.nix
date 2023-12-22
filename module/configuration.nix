@@ -1,11 +1,6 @@
  { config, lib, userConfig, ...}: {
 
-  imports = [
-        ./desktop/hyprland
-        (
-          import ./desktop/greetd { inherit userConfig; }
-        )
-    ];
+  imports = [ ./desktop/hyprland ./desktop/greetd ];
 
   options = {
     username = lib.mkOption {

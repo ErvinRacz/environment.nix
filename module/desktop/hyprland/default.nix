@@ -12,7 +12,6 @@ in
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland.enable = true;
-        xwayland.hidpi = true;
       };
 
       environment.sessionVariables = lib.mkIf inTestingVm {
