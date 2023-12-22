@@ -13,7 +13,7 @@ in
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
         xwayland.enable = true;
         xwayland.hidpi = true;
-      }
+      };
 
       environment.sessionVariables = lib.mkIf inTestingVm {
         # do not forget to turn on accelerated 3d rendering in vm
