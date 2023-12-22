@@ -1,4 +1,4 @@
-{ userConfig, inputs, config, pkgs, lib, ... }:
+{ userConfig, config, pkgs, lib, ... }:
 {
   # greetd session manager
   services.greetd = let

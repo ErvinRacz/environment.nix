@@ -4,7 +4,7 @@ system:
 
 let
   hardware-configuration = import ./nixos-hardware-configuration.nix;
-  configuration = import ../module/configuration.nix { inherit userConfig; };
+  configuration = import ../module/configuration.nix;
   home-manager-config = import ../module/home-manager.nix;
 in
 inputs.nixpkgs.lib.nixosSystem {
