@@ -1,14 +1,12 @@
 { inputs, userConfig }:
-
 system:
-
 let
   hardware-configuration = import ./nixos-hardware-configuration.nix;
   configuration = import ../module/configuration.nix;
   home-manager-config = import ../module/home-manager.nix;
 in
 inputs.nixpkgs.lib.nixosSystem {
-  specialArgs = { inherit inputs; };
+  specialArgs = { inherit inputs userConfig; };
   inherit system;
   modules = [
     {
