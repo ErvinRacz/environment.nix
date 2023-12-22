@@ -11,14 +11,15 @@ in
       programs.hyprland = {
         enable = true;
         package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-      } // (if inTestingVm then {
         xwayland.enable = true;
-      } else {});
+        xwayland.hidpi = true;
+      }
 
       environment.sessionVariables = lib.mkIf inTestingVm {
-        WLR_NO_HARDWARE_CURSORS = "1";
-        WLR_RENDERER_ALLOW_SOFTWARE = "1";
-        NIXOS_OZONE_WL = "1";
+        # do not forget to turn on accelerated 3d rendering in vm
+        WLR_NO_HARDWARE_CURSORS = "1"; # might be needed in simple vm, not sure
+        WLR_RENDERER_ALLOW_SOFTWARE = "1"; # needed in simple vm, not sure
+        NIXOS_OZONE_WL = "1"; # hints the electron app to use wayland - important for nvidia drivers and others maybe
       };
 
       hardware = lib.mkIf inTestingVm {
