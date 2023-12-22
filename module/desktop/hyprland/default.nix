@@ -24,5 +24,11 @@ in
       hardware = lib.mkIf inTestingVm {
         opengl.enable = true;
       };
+
+      environment.systemPackages = [
+        pkgs.waybar
+        pkgs.dunst
+        libnotify
+      ];
   };
 }
