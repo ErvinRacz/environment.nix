@@ -1,4 +1,4 @@
- { config, lib, userConfig ...}: {
+ { config, lib, userConfig, ...}: {
 
   imports = [
         ./desktop/hyprland
