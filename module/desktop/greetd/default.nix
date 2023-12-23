@@ -1,5 +1,9 @@
 { userConfig, config, pkgs, lib, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    greetd.tuigreet
+  ];
+
   # greetd session manager
   services.greetd = let
     session = {
@@ -13,12 +17,13 @@
       terminal.vt = 1;
       default_session = session;
       initial_session = session;
+
+      extraConfig = ''
+        $mainMod = SUPER
+        bind = $mainMod, T, exec, alacritty
+      '';
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    greetd.tuigreet
-  ];
 
   # unlock GPG keyring, which sotres SSH keys, stored credentials, etc on login
   # security.pam.services.greetd.enableGnomeKeyring = true;
