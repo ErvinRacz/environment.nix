@@ -3,7 +3,7 @@
   imports = [
   ./desktop/hyprland
   ./desktop/greetd
-  ./desktop/alacritty
+  ./programs/alacritty
   ];
 
   options = {
