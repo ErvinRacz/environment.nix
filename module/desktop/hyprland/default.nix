@@ -25,9 +25,10 @@ in
         opengl.enable = true;
       };
 
-      environment.systemPackages = [
-        pkgs.waybar
-        pkgs.dunst
+      # TODO: manage the plugins
+      environment.systemPackages = with pgks; [
+        waybar
+        dunst
         libnotify
       ];
   };
