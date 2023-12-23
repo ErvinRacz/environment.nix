@@ -26,7 +26,7 @@ in
       };
 
       # TODO: manage the plugins
-      environment.systemPackages = with pgks; [
+      environment.systemPackages = with pkgs; [
         waybar
         dunst
         libnotify
